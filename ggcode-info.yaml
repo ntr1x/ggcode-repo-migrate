@@ -1,0 +1,15 @@
+name: migrate
+actions:
+- name: generate
+  path: actions/generate.luau
+scrolls:
+- name: liquibase
+  path: scrolls/liquibase
+- name: changelog
+  path: scrolls/changelog
+repositories:
+- name: core
+  uri: git@github.com:ntr1x/ggcode-repo-core.git
+targets:
+- name: '@app'
+  path: app
