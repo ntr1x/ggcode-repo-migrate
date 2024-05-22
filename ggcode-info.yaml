@@ -3,6 +3,8 @@ actions:
 - name: generate
   path: actions/generate.luau
 scrolls:
+- name: project
+  path: scrolls/project
 - name: liquibase
   path: scrolls/liquibase
 - name: changelog

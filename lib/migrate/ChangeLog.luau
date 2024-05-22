@@ -29,6 +29,7 @@ end
 
 function ChangeLog:with_changeset(changeset: ChangeSet)
   self.sequence[#self.sequence + 1] = changeset
+  return self
 end
 
 function ChangeLog:with_rules(children: table)
@@ -53,7 +54,7 @@ end
 
 function ChangeLog:unwrap_changelog()
   return {
-    name = self.name,
+    name = self.name or 'changelog',
   }
 end
 

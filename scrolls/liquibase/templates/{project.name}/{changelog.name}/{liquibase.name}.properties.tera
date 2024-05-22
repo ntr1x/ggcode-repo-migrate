@@ -1,6 +1,6 @@
 classpath: /liquibase/changelog
 url: {{liquibase.uri}}
-changeLogFile: db.changelog-master.yaml
+changeLogFile: {{changelog.name}}/changelog.yaml
 username: {{liquibase.username}}
 password: {{liquibase.password}}
 # hub.mode: off

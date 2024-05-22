@@ -1,0 +1,20 @@
+databaseChangeLog:
+{%- for changeset in sequence %}
+  - changeSet:
+      id: {{changeset.changeset.tag}}
+      author: {{changeset.changeset.author}}
+      changes:
+        {%- for path in changeset.up_scripts %}
+        - sqlFile:
+            path: {{path}}
+            relativeToChangelogFile: true
+        {%- endfor %}
+      {%- if changeset is containing('down_scripts') and changeset.down_scripts | length > 0 %}
+      rollback:
+        {%- for path in changeset.down_scripts %}
+        - sqlFile:
+            path: {{path}}
+            relativeToChangelogFile: true
+        {%- endfor %}
+      {%- endif %}
+{%- endfor %}
