@@ -1,4 +1,5 @@
 local Meta = require('core/Meta')
+local Project = require('core/Project')
 local ChangeSet = require('migrate/changelog/ChangeSet')
 
 local ChangeLog = {

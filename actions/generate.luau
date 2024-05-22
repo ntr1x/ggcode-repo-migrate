@@ -1,5 +1,5 @@
 local ggcode = require('core/ggcode')
-local Project = require('migrate/Project')
+local Project = require('core/Project')
 local Liquibase = require('migrate/Liquibase')
 local ChangeLog = require('migrate/ChangeLog')
 
