@@ -34,10 +34,8 @@ local changelog = ChangeLog
         'ddl/public/create/customer_verify_phone.sql',
         'ddl/public/create/customer_bonus.sql',
         'ddl/public/create/agent.sql',
-        'ddl/public/create/event.sql',
       })
       :with_down_scripts({
-        'ddl/public/drop/event.sql',
         'ddl/public/drop/agent.sql',
         'ddl/public/drop/customer_bonus.sql',
         'ddl/public/drop/customer_verify_phone.sql',
@@ -105,6 +103,30 @@ local changelog = ChangeLog
         'ddl/public/drop/basket_entry.sql',
         'ddl/public/drop/basket.sql',
         'ddl/public/drop/favorite.sql',
+      }),
+    ChangeLog.ChangeSet
+      :from('1.0.3', 'Developer', "Setup event tables")
+      :with_up_scripts({
+        'ddl/public/create/event_source_info.sql',
+        'ddl/public/create/event_topic_info.sql',
+        'ddl/public/create/event_type_info.sql',
+        'ddl/public/create/event.sql',
+        'ddl/public/create/subscription_type.sql',
+        'ddl/public/create/subscription.sql',
+        'ddl/public/create/dispatch_type.sql',
+        'ddl/public/create/dispatch_status.sql',
+        'ddl/public/create/dispatch.sql',
+      })
+      :with_down_scripts({
+        'ddl/public/drop/dispatch.sql',
+        'ddl/public/drop/dispatch_status.sql',
+        'ddl/public/drop/dispatch_type.sql',
+        'ddl/public/drop/subscription.sql',
+        'ddl/public/drop/subscription_type.sql',
+        'ddl/public/drop/event.sql',
+        'ddl/public/drop/event_type_info.sql',
+        'ddl/public/drop/event_topic_info.sql',
+        'ddl/public/drop/event_source_info.sql',
       }),
   }
 
