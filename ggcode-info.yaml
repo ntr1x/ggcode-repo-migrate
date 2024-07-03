@@ -1,7 +1,9 @@
 name: migrate
 actions:
-- name: generate
-  path: actions/generate.luau
+- name: generate-app
+  path: actions/generate-app.luau
+- name: generate-store
+  path: actions/generate-store.luau
 scrolls:
 - name: project
   path: scrolls/project
@@ -15,3 +17,5 @@ repositories:
 targets:
 - name: '@app'
   path: app
+- name: '@store'
+  path: ../../ggcode-generated/ggcode-generated-store
