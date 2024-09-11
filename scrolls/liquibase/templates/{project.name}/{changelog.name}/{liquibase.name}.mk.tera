@@ -1,0 +1,23 @@
+migrate/{{changelog.name}}/{{liquibase.name}}:
+	docker run --rm \
+		-v ./{{changelog.name}}:/liquibase/changelog \
+		--add-host=host.docker.internal:host-gateway \
+		liquibase/liquibase \
+		--defaults-file={{changelog.name}}/{{liquibase.name}}.properties \
+		update
+
+rollback/{{changelog.name}}/{{liquibase.name}}:
+	docker run --rm \
+		-v ./{{changelog.name}}:/liquibase/changelog \
+		--add-host=host.docker.internal:host-gateway \
+		liquibase/liquibase \
+		--defaults-file={{changelog.name}}/{{liquibase.name}}.properties \
+		rollback-count 1
+
+reset/{{changelog.name}}/{{liquibase.name}}:
+	docker run --rm \
+		-v ./{{changelog.name}}:/liquibase/changelog \
+		--add-host=host.docker.internal:host-gateway \
+		liquibase/liquibase \
+		--defaults-file={{changelog.name}}/{{liquibase.name}}.properties \
+		rollback-count 1000
